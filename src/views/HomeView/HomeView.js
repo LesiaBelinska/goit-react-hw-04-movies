@@ -1,10 +1,9 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { fetchTrendingMovies, POSTER_URL } from '../../services/themoviedb-api';
 import PendingView from '../PendingView/PendingView';
 import ErrorView from '../ErrorView/ErrorView';
-//import s from './HomeView.module.css';
+import s from './HomeView.module.css';
 
 const Status = {
   PENDING: 'pending',
@@ -14,17 +13,17 @@ const Status = {
 
 export default function HomeView() {
   const { url } = useRouteMatch();
-  const [films, setFilms] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [error, setError] = useState({});
   const [status, setStatus] = useState(Status.PENDING);
 
   useEffect(() => {
     setStatus(Status.PENDING);
     fetchTrendingMovies()
-      .then(request => setFilms(request.results))
+      .then(request => setMovies(request.results))
       .then(setStatus(Status.RESOLVED))
-      .catch(err => {
-        setError(err);
+      .catch(error => {
+        setError(error);
         setStatus(Status.REJECTED);
       });
   }, []);
@@ -40,27 +39,26 @@ export default function HomeView() {
   if (status === Status.RESOLVED) {
     return (
       <>
-        {films && (
+        {movies && (
           <>
-            <p className='{s.title}'>Trending movies</p>
-            <ul className='{s.list}'>
-              {films.map(film => (
-                <>
-                  {film.poster_path && (
-                    <li key={film.id} className='{s.item}'>
-                      <Link to={`${url}movies/${film.id}`} className='{s.link}'>
+            <p className={s.title}>Trending movies</p>
+            <ul className={s.list}>
+              {movies.map((movie) => (
+              
+                    <li
+                      key={movie.id}
+                      className={s.item}>
+                      <Link to={`${url}movies/${movie.id}`} className={s.link}>
                         <img
-                          className='{s.image}'
-                          src={POSTER_URL + film.poster_path}
-                          alt={film.title}
+                          className={s.image}
+                          src={POSTER_URL + movie.poster_path}
+                          alt={movie.title}
                           width="300"
                           height="450"
                         />
-                        <p className='{s.filmTitle}'>{film.title}</p>
+                        <p className={s.movieTitle}>{movie.title}</p>
                       </Link>
                     </li>
-                  )}
-                </>
               ))}
             </ul>
           </>
