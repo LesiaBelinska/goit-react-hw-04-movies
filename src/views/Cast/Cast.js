@@ -16,9 +16,7 @@ export default function Cast({ movieId }) {
         <>
           <ul className='{s.list}'>
             {cast.map(item => (
-              <>
-                {item.profile_path && (
-                  <li key={item.profile_path} className='{s.item}'>
+              <li key={item.id} className='{s.item}'>
                     <img
                       className='{s.image}'
                       src={POSTER_URL + item.profile_path}
@@ -28,8 +26,6 @@ export default function Cast({ movieId }) {
                     />
                     <p> {item.name}</p>
                   </li>
-                )}
-              </>
             ))}
           </ul>
         </>
