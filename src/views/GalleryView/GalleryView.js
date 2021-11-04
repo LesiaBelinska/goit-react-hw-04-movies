@@ -8,8 +8,6 @@ export default function GalleryView({ films }) {
   return (
     <ul className='{s.list}'>
       {films.map(film => (
-        <>
-          {film.poster_path && (
             <li key={film.id} className='{s.item}'>
               <Link to={`${url}/${film.id}`} className='{s.link}'>
                 <img
@@ -22,8 +20,6 @@ export default function GalleryView({ films }) {
                 <p className='{s.title}'>{film.title}</p>
               </Link>
             </li>
-          )}
-        </>
       ))}
     </ul>
   );
