@@ -4,7 +4,7 @@ import { fetchMoviesByName } from '../../services/themoviedb-api';
 import ErrorView from '../ErrorView/ErrorView';
 import PendingView from '../PendingView/PendingView';
 import GalleryView from '../GalleryView/GalleryView';
-//import s from './FilmStatusView.module.css';
+import s from './FilmStatusView.module.css';
 
 const Status = {
   IDLE: 'idle',
@@ -43,7 +43,7 @@ export default function FilmsStatusView({ filmName, queryURL }) {
   }, [filmName, queryURL]);
 
   if (status === Status.IDLE) {
-    return <p className='{s.message}'>Please enter your search term</p>;
+    return <p className={s.message}>Please enter your search term</p>;
   }
 
   if (status === Status.PENDING) {

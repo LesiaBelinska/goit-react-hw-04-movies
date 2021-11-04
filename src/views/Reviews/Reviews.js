@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { fetchMovieReviews } from '../../services/themoviedb-api';
-//import s from './Reviews.module.css';
+import s from './Reviews.module.css';
 
 export default function Reviews({ movieId }) {
   const [reviews, setReviews] = useState([]);

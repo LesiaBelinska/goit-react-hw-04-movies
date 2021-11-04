@@ -5,7 +5,7 @@ import Cast from '../Cast/Cast';
 import Reviews from '../Reviews/Reviews';
 import PendingView from '../PendingView/PendingView';
 
-//import s from './MovieDetailsView.module.css';
+import s from './MovieDetailsView.module.css';
 
 export default function MovieDetailsView() {
   const { movieId } = useParams();
@@ -18,27 +18,27 @@ export default function MovieDetailsView() {
 
   return (
     <div>
-      <div className='{s.wrapper}'>
+      <div className={s.wrapper}>
         <img
-          className='{s.image}'
+          className={s.image}
           src={POSTER_URL + film.poster_path}
           alt={film.title}
           widht="300"
           height="450"
         />
-        <div className='{s.rightPart}'>
-          <h2 className='{s.title}'>{film.title}</h2>
-          <span className='{s.subtitle}'>Rating </span>
+        <div className={s.rightPart}>
+          <h2 className={s.title}>{film.title}</h2>
+          <span className={s.subtitle}>Rating </span>
           <span>{film.vote_average}</span>
-          <p className='{s.subtitle}'>Overview</p>
+          <p className={s.subtitle}>Overview</p>
           <p>{film.overview}</p>
 
           {film.genres && (
             <>
-              <p className='{s.subtitle}'>Genres</p>
-              <ul className='{s.list}'>
+              <p className={s.subtitle}>Genres</p>
+              <ul className={s.list}>
                 {film.genres.map((item, index) => (
-                  <li key={index} className='{s.item}'>
+                  <li key={index} className={s.item}>
                     {item.name}
                   </li>
                 ))}
@@ -48,18 +48,18 @@ export default function MovieDetailsView() {
         </div>
       </div>
 
-      <nav className='{s.nav}'>
+      <nav className={s.nav}>
         <NavLink
           to={`${url}/cast`}
-          className='{s.link}'
-          activeClassName='{s.activeLink}'
+          className={s.link}
+          activeClassName={s.activeLink}
         >
           Cast
         </NavLink>
         <NavLink
           to={`${url}/reviews`}
-          className='{s.link}'
-          activeClassName='{s.activeLink}'
+          className={s.link}
+          activeClassName={s.activeLink}
         >
           Reviews
         </NavLink>

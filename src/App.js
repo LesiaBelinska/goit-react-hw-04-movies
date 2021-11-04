@@ -8,7 +8,7 @@ import PendingView from './views/PendingView/PendingView';
 
 const HomeView = lazy(() => import('./views/HomeView/HomeView' /* webpackChunkName:"HomeView"*/),);
 const MoviesView = lazy(() => import('./views/MoviesView/MoviesView' /* webpackChunkName:"MoviesView"*/),);
-const MovieDetailsView = lazy(() => import('./views/MovieDetailsView/MovieDetailsView' /* webpackChunkName:"ovieDetailsView"*/),);
+const MovieDetailsView = lazy(() => import('./views/MovieDetailsView/MovieDetailsView' /* webpackChunkName:"MovieDetailsView"*/),);
 const NotFoundView = lazy(() => import('./views/NotFoundView/NotFoundView' /* webpackChunkName:"NotFoundView"*/),);
 
 
