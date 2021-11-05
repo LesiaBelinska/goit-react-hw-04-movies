@@ -11,20 +11,20 @@ export default function Reviews({ movieId }) {
   }, [movieId]);
 
   return (
-    <div className='{s.wrapper}'>
+    <div className={s.wrapper}>
       {reviews.length > 0 ? (
         <>
-          <ul className='{s.list}'>
+          <ul className={s.list}>
             {reviews.map((item, index) => (
-              <li key={index} className='{s.item}'>
-                <p className='{s.title}'> {item.author}</p>
+              <li key={index} className={s.item}>
+                <p className={s.title}> {item.author}</p>
                 <p> {item.content}</p>
               </li>
             ))}
           </ul>
         </>
       ) : (
-        <p className='{s.text}'>No reviews to show</p>
+        <p className={s.text}>No reviews to show</p>
       )}
     </div>
   );
